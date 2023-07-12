@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <script>
+        function total_item_rate() {
+            var item = Number(document.getElementById("item").value);
+            var qty = Number(document.getElementById("qty").value);
+            var total_item_rate = item * qty;
+            document.getElementById("item_rate").value = total_item_rate;
+        }
+
+        function grand_total() {
+            var item = Number(document.getElementById("item").value);
+            var qty = Number(document.getElementById("qty").value);
+            var item_gst = Number(document.getElementById("item_gst").value);
+            var total_item_rate = item * qty;
+            var gst = total_item_rate * (item_gst / 100);
+            var final_total = total_item_rate + gst;
+            document.getElementById("grand_total").value = final_total;
+        }
+    </script>
+</head>
+
+<body>
+
+    <input type="number" placeholder="Enter Rate of Item" id="item">
+    <input type="number" placeholder="Enter Quantity of Item" id="qty" onblur="total_item_rate()">
+    <input type="number" placeholder="Total Rate of Item" id="item_rate" readonly>
+    <input type="number" placeholder="Enter GST%" id="item_gst" onblur="grand_total()">
+    <input type="number" placeholder="Grand Total" id="grand_total" readonly>
+
+</body>
+
+</html>
